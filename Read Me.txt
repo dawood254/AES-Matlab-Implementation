@@ -1,0 +1,20 @@
+AES Implementation in MATLAB
+
+This is an implementation of the Advanced Encryption Standard (AES) algorithm in MATLAB. AES is a widely-used symmetric-key encryption standard that was adopted by the US government in 2001 and is now used in many applications.
+
+Usage
+To use this implementation, simply open Main.m file and run it in MATLAB. 
+To encrypt a message, follow these steps:
+
+Define the plaintext message as an array of decimal values, where each value represents a character in the message. For example, Plaintext = [0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15] represents the message "0123456789ABCDEF".
+Define the encryption key as an array of decimal values of length 16, 24, or 32. For example, Key = zeros(1,16) represents the key of all zeros.
+Generate the round keys using the Key_Expension function, which takes the encryption key as input. For example, R_Keys = Key_Expension(Key) generates the round keys.
+Determine the number of rounds of encryption to be performed based on the length of the encryption key. For example, if the key length is 16, use 10 rounds; if the key length is 24, use 12 rounds; if the key length is 32, use 14 rounds.
+Encrypt the plaintext message using the Encryption function. The Encryption function takes the plaintext message, the round keys, and the number of rounds as input, and outputs the ciphertext message. For example, Ciphertext = Encryption(Plaintext,R_Keys,NR) encrypts the plaintext message.
+To decrypt a ciphertext message, follow these steps:
+
+Define the ciphertext message as an array of decimal values, where each value represents a character in the message. For example, Ciphertext = [105 21 190 35 196 242 240 157 226 141 46 105 118 68 206 167] represents the ciphertext message.
+Generate the round keys using the Key_Expension function, as before.
+Determine the number of rounds of encryption to be performed based on the length of the encryption key, as before.
+Decrypt the ciphertext message using the Decryption function. The Decryption function takes the ciphertext message, the round keys, and the number of rounds as input, and outputs the plaintext message. For example, Plaintext = Decryption(Ciphertext,R_Keys,NR) decrypts the ciphertext message.
+The plaintext message will be in decimal format. You can convert it to a string of characters using the char function. For example, char(Plaintext) converts the decimal plaintext to the string "0123456789ABCDEF".
